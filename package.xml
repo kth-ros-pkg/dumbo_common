@@ -1,22 +1,29 @@
 <package>
-  <description brief="dumbo_common">
-  
+  <name> dumbo_common </name>
+  <version>1.0.0</version>
+  <description>
     Description files and services for CVAP's Dumbo robot.
     Implemented from the cob_common stack (http://ros.org/wiki/cob_common) by Florian Weisshardt.
-
-  
   </description>
-  <author>Maintained by Francisco Vina</author>
-  <license>BSD</license>  
-  <review status="unreviewed" notes=""/>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+  <license>BSD</license>
+
   <url>http://ros.org/wiki/dumbo_common</url>
-  <depend stack="ros" />
-  <depend stack="common_msgs" /> <!-- trajectory_msgs, geometry_msgs -->
-  <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
-  <depend stack="ros_comm" /> <!-- rostest, std_msgs, roscpp -->
-  <depend stack="xacro" />
-  <depend stack="urdf" />
-  <depend stack="urdfdom" />
+  <author>Francisco Vina</author>
+
+  <build_depend>common_msgs</build_depend>
+  <build_depend>ros_comm</build_depend>
+  <build_depend>robot_model</build_depend>
+  <build_depend>xacro</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>urdfdom</build_depend>
+
+  <run_depend>common_msgs</run_depend>
+  <run_depend>ros_comm</run_depend>
+  <run_depend>robot_model</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>urdfdom</run_depend>
 
   <export>
     <metapackage/>
