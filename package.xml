@@ -1,7 +1,7 @@
-<stack>
+<package>
   <description brief="dumbo_common">
   
-    Description files for CVAP's Dumbo robot.
+    Description files and services for CVAP's Dumbo robot.
     Implemented from the cob_common stack (http://ros.org/wiki/cob_common) by Florian Weisshardt.
 
   
@@ -17,4 +17,8 @@
   <depend stack="xacro" />
   <depend stack="urdf" />
   <depend stack="urdfdom" />
-</stack>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
