@@ -3,7 +3,7 @@
   <version>1.0.0</version>
   <description>
     Description files and services for CVAP's Dumbo robot.
-    Implemented from the cob_description package (http://ros.org/wiki/cob_description) by Florian Weisshardt.
+    Implementation based on the cob_description package (http://ros.org/wiki/cob_description) by Florian Weisshardt.
   </description>
   <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
   <license>BSD</license>
@@ -11,19 +11,7 @@
   <url>http://ros.org/wiki/dumbo_common</url>
   <author>Francisco Vina</author>
 
-  <build_depend>common_msgs</build_depend>
-  <build_depend>ros_comm</build_depend>
-  <build_depend>robot_model</build_depend>
-  <build_depend>xacro</build_depend>
-  <build_depend>urdf</build_depend>
-  <build_depend>urdfdom</build_depend>
-
-  <run_depend>common_msgs</run_depend>
-  <run_depend>ros_comm</run_depend>
-  <run_depend>robot_model</run_depend>
-  <run_depend>xacro</run_depend>
-  <run_depend>urdf</run_depend>
-  <run_depend>urdfdom</run_depend>
+  <buildtool_depend>catkin</buildtool_depend>
 
 </package>
 
