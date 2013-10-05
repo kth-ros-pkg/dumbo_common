@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <!-- PG70 parallel gripper finger -->
+  <xacro:macro name="dumbo_pg70_finger" params="name prefix parent reflect">
+    <joint name="${name}_${prefix}_finger_joint" type="prismatic">
+      <origin xyz="0.0 0.0 ${-PG70_finger_length_z}" rpy="0.0 0.0 0.0" />
+      <axis xyz="0 ${reflect} 0" />
+      <calibration rising="0.0"/>
+      <parent link="${parent}" />
+      <child link="${name}_${prefix}_finger_link" />
+      <limit effort="370" velocity="0.01" lower="0.0" upper="0.03"/>
+      <safety_controller k_position="100" k_velocity="10" soft_lower_limit="0.001" soft_upper_limit="${0.03-0.001}" />
+    </joint>
+
+
+    <link name="${name}_${prefix}_finger_link">
+      <inertial>
+	<origin xyz="0 ${reflect*PG70_finger_length_y/2} ${PG70_finger_length_z/2}" rpy="0 0 0" />
+	<mass value="1.0" />
+	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+
+      <visual>
+	<origin xyz="0 ${reflect*PG70_finger_length_y/2} ${PG70_finger_length_z/2}" rpy="0 0 0" />
+	<geometry>
+	  <box size="${PG70_finger_length_x} ${PG70_finger_length_y} ${PG70_finger_length_z}" />
+	</geometry>
+	<material name="Grey" />	
+      </visual>
+
+      <collision>
+	<origin xyz="0 ${reflect*PG70_finger_length_y/2} ${PG70_finger_length_z/2}" rpy="0 0 0" />
+	<geometry>
+	  <box size="${PG70_finger_length_x+0.02} ${PG70_finger_length_y} ${PG70_finger_length_z+0.02}" />
+	</geometry>
+      </collision>
+    </link>    
+  </xacro:macro>
+
+
+
+  <!-- macro for creating a schunk PG70 parallel gripper -->
+  <xacro:macro name="dumbo_pg70_gripper" params="name parent">
+
+    <!-- ==================== tool ==================== -->
+    <joint name="${name}_tool_joint" type="fixed">
+      <origin xyz="0.0 0.0 ${DUMBO_TOOL_LENGTH}" rpy="0.0 0.0 0.0" />
+      <parent link="${parent}" />
+      <child link="${name}_tool_link" />
+    </joint>
+
+    <link name="${name}_tool_link">
+      <inertial>
+	<origin xyz="0 0 ${-PG70_finger_length_z - PG70_length_z/2}" rpy="0 0 0" />
+	<mass value="1.0" />
+	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+
+      <visual>
+	<origin xyz="0 0 ${-PG70_finger_length_z - PG70_length_z/2}" rpy="0 0 0" />
+	<geometry>
+	  <box size="${PG70_length_x} ${PG70_length_y} ${PG70_length_z}" />
+	</geometry>
+	<material name="Black" />	
+      </visual>
+
+      <collision>
+	<origin xyz="0 0 ${-PG70_finger_length_z - PG70_length_z/2}" rpy="0 0 0" />
+	<geometry>
+	  <box size="${PG70_length_x+0.02} ${PG70_length_y+0.02} ${PG70_length_z+0.02}" />
+	</geometry>
+      </collision>
+    </link>
+    
+    <xacro:dumbo_pg70_finger name="${name}" prefix="top" parent="${name}_tool_link" reflect="1" />
+    <xacro:dumbo_pg70_finger name="${name}" prefix="bottom" parent="${name}_tool_link" reflect="-1" />
+
+  </xacro:macro>
+
+</robot>

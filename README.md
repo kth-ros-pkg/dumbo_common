@@ -1,4 +1,4 @@
 dumbo_common
 ============
 
-Description files for CVAP's Dumbo robot
+Description files and services for CVAP's Dumbo robot.

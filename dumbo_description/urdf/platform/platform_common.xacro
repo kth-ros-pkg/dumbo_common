@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot>
+
+  <property name="platform_length_x" value="2.0" />
+  <property name="platform_length_y" value="2.0" />
+  <property name="platform_length_z" value="0.4735" />
+
+</robot>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <!-- macro for setting up the reference frame of the accelerometer (Phidgets 1056 IMU)
+       reflect = 1 for right arm, -1 for the left arm -->
+  <xacro:macro name="dumbo_accelerometer" params="name parent">
+    
+
+    <!-- ==================== Accelerometer ==================== -->
+
+    <joint name="${name}_joint" type="fixed" >
+      <origin xyz="0.0 -0.098 0.0" rpy="-1.5452 -0.0353 0.0295"/>
+      <parent link="${parent}" />
+      <child link="${name}" />
+    </joint>
+    
+    <link name="${name}">
+      <inertial>
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<mass value="1.0"/>
+	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+
+      <visual>
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <box size="0.1 0.1 0.005" rpy="0.0 0.0 0.0" />
+	</geometry>
+	<material name="Grey" />
+      </visual>
+
+      <collision>
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	<geometry>
+	  <box size="0.1 0.1 0.005" rpy="0.0 0.0 0.0" />	  
+	</geometry>
+      </collision>
+    </link>
+    
+  </xacro:macro>
+
+</robot>

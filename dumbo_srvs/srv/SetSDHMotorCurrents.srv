@@ -1,0 +1,4 @@
+std_msgs/String[] axes
+std_msgs/Float64[] motor_currents
+---
+std_msgs/Bool success

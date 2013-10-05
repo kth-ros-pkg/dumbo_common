@@ -1,0 +1,20 @@
+<stack>
+  <description brief="dumbo_common">
+  
+    Description files for CVAP's Dumbo robot.
+    Implemented from the cob_common stack (http://ros.org/wiki/cob_common) by Florian Weisshardt.
+
+  
+  </description>
+  <author>Maintained by Francisco Vina</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/dumbo_common</url>
+  <depend stack="ros" />
+  <depend stack="common_msgs" /> <!-- trajectory_msgs, geometry_msgs -->
+  <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
+  <depend stack="ros_comm" /> <!-- rostest, std_msgs, roscpp -->
+  <depend stack="xacro" />
+  <depend stack="urdf" />
+  <depend stack="urdfdom" />
+</stack>

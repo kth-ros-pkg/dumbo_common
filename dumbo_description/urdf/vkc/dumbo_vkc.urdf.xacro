@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+  
+  <xacro:macro name="dumbo_vkc" params="name parent child *origin">
+    <!-- Joint between the first vkc link and its parent link -->
+    <!-- This is the hight -->
+    <joint name="${name}_joint_1" type="prismatic">
+      <!-- <insert_block name="origin"/> -->
+      <!-- This origin defines the distance from O_1 to the gripper. Let's try z = 20cm first, this distance is the length of the pan -->
+      <origin xyz="0.0 0.0 0.2" rpy="-1.57075 0.0 0.0" />
+      <parent link="${parent}"/>
+      <child link="${name}_dummy_link_1"/>
+    </joint>
+    <!-- first link of the vkc -->
+    <link name="${name}_dummy_link_1">
+      <visual>
+	<!-- This defines the height -->
+	<!-- This indicates the direction of the first joint -->
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <cylinder length="0.12" radius="0.02"/>
+	</geometry>
+	<material name="red">
+	  <color rgba="0.8 0 0 1"/>
+	</material>
+      </visual>
+    </link>
+    <!-- This describes the circular motion  -->
+    <joint name="${name}_joint_2" type="continuous">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <!-- Rotate about the z axis -->
+      <axis xyz="0.0 0.0 1.0" />
+      <parent link="${name}_dummy_link_1"/>
+      <child link="${name}_dummy_link_2"/>
+    </joint>
+    <!-- second link of the vkc -->
+    <link name="${name}_dummy_link_2">
+      <visual>
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<!-- This indicates the direction of the second joint -->
+	<geometry>
+	  <!-- <box size="0.001 0.001 0.001"/> -->
+	  <!-- This guy's appreance should coincide the first link  -->
+	  <cylinder length="0.12" radius="0.02"/>
+	  <!-- <box size="0.01 0.01 0.05"/> -->
+	  <!-- <sphere radius="0.03"/> -->
+	  
+	</geometry>
+	<material name="green">
+	  <color rgba="0 0.8 0 1"/>
+	</material>
+
+      </visual>
+    </link>
+
+
+    <!-- This describes the radius  -->
+    <joint name="${name}_joint_3" type="prismatic">
+      <!-- <insert_block name="origin"/> -->
+      <origin xyz="0.0 0.0 0.0" rpy="1.57075 0.0 0.0" />
+      <parent link="${name}_dummy_link_2"/>
+      <child link="${name}_dummy_link_3"/>
+    </joint>
+    <!-- third link of the vkc -->
+    <link name="${name}_dummy_link_3">
+      <visual>
+	<!-- <insert_block name="origin"/> -->
+	<!-- This origin defines the distance from O_1 to the gripper. Let's try z = 20cm first, this distance is the length of the pan -->
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <!-- <box size="0.001 0.001 0.001"/> -->
+	  <cylinder length="0.12" radius="0.02"/>
+	  <!-- <box size="0.01 0.01 0.05"/> -->
+	  <!-- <sphere radius="0.03"/> -->
+	</geometry>
+	<material name="blue">
+	  <color rgba="0 0 0.8 1"/>
+	</material>
+
+      </visual>
+    </link>
+    <!-- This describes the radius  -->
+    <joint name="${name}_joint_4" type="continuous">
+      <!-- <insert_block name="origin"/> -->
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <!-- rotates about x axis -->
+      <axis xyz="1.0 0.0 00" />
+      <parent link="${name}_dummy_link_3"/>
+      <child link="${name}_dummy_link_4"/>
+    </joint>
+    <!-- forth link of the vkc -->
+    <link name="${name}_dummy_link_4">
+      <visual>
+	<!-- <insert_block name="origin"/> -->
+	<!-- This origin defines the distance from O_1 to the gripper. Let's try z = 20cm first, this distance is the length of the pan -->
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <!-- <box size="0.001 0.001 0.001"/>  -->
+	  <cylinder length="0.12" radius="0.02"/>
+	</geometry>
+	<material name="white">
+	  <color rgba="0.8 0.8 0.8 1"/>
+	</material>
+
+      </visual>
+    </link>
+    <!-- This describes the tool orientation  -->
+    <joint name="${name}_joint_5" type="continuous">
+      <!-- <insert_block name="origin"/> -->
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <!-- rotates about x axis -->
+      <axis xyz="0.0 1.0 00" />
+      <parent link="${name}_dummy_link_4"/>
+      <child link="${name}_dummy_link_5"/>
+    </joint>
+    <!-- fifth link of the vkc -->
+    <link name="${name}_dummy_link_5">
+      <visual>
+	<!-- <insert_block name="origin"/> -->
+	<!-- This origin defines the distance from O_1 to the gripper. Let's try z = 20cm first, this distance is the length of the pan -->
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <!-- <box size="0.001 0.001 0.001"/> -->
+	  <cylinder length="0.12" radius="0.02"/>
+	  <!-- <sphere radius="0.03"/> -->
+	</geometry>
+	<material name="black">
+	  <color rgba="0 0 0 1"/>
+	</material>
+      </visual>
+    </link>
+    <!-- This describes the tool orientation  -->
+    <joint name="${name}_joint_6" type="continuous">
+      <!-- <insert_block name="origin"/> -->
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <!-- rotates about x axis -->
+      <axis xyz="0.0 0.0 1.0" />
+      <parent link="${name}_dummy_link_5"/>
+      <child link="${name}_dummy_link_6"/>
+    </joint>
+    <!-- fifth link of the vkc -->
+    <link name="${name}_dummy_link_6">
+      <visual>
+	<!-- <insert_block name="origin"/> -->
+	<!-- This origin defines the distance from O_1 to the gripper. Let's try z = 20cm first, this distance is the length of the pan -->
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	<geometry>
+	  <!-- <box size="0.001 0.001 0.001"/> -->
+	  <cylinder length="0.12" radius="0.02"/>
+	  <!-- <sphere radius="0.03"/> -->
+	</geometry>
+	<material name="cyan">
+	  <color rgba="0 0.8 0.8 1"/>
+	</material>
+      </visual>
+    </link>
+    <!-- Try to add more links and joints  -->
+  </xacro:macro>
+</robot>
