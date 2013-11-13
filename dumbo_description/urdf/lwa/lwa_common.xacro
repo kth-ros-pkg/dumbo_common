@@ -53,7 +53,7 @@
   <property name="PRL80_radius" value="0.045" />
   <property name="PRL80_length" value="0.17" />
 
-  <!-- FT sensor distance from joint 7-->
-  <property name="FT_sensor_distance" value="0.219848"/>
+  <!-- F/T sensor distance from joint 7-->
+  <property name="ft_sensor_distance" value="0.219848"/>
 
 </robot>
