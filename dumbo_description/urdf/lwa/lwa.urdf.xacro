@@ -61,7 +61,7 @@
       <collision>
 	<origin xyz="0 0 ${-DUMBO_LINK1_LENGTH/2 + middle_plate_length_x/4 - PRL100_radius/2 + 0.02}" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL100_radius+0.02}" length="${PRL100_length+0.02}"/>
+	  <cylinder radius="${PRL100_radius}" length="${PRL100_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -96,7 +96,7 @@
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL100_radius+0.02}" length="${PRL100_length+0.02}"/>
+	  <cylinder radius="${PRL100_radius}" length="${PRL100_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -131,7 +131,7 @@
       <collision>
 	<origin xyz="0 0 ${-DUMBO_DH_D_3/2}" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL100_radius+0.02}" length="${PRL100_length+0.05}"/>
+	  <cylinder radius="${PRL100_radius}" length="${PRL100_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -166,7 +166,7 @@
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL100_radius+0.02}" length="${PRL100_length+0.02}"/>
+	  <cylinder radius="${PRL100_radius}" length="${PRL100_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -201,7 +201,7 @@
       <collision>
 	<origin xyz="0 0 ${-DUMBO_DH_D_5/2 - PRL80_radius/2 + PRL100_radius/2}" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL80_radius+0.02}" length="${PRL80_length}"/>
+	  <cylinder radius="${PRL80_radius}" length="${PRL80_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -236,7 +236,7 @@
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry>
-	  <cylinder radius="${PRL80_radius+0.02}" length="${PRL80_length+0.02}"/>
+	  <cylinder radius="${PRL80_radius}" length="${PRL80_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -271,7 +271,7 @@
       <collision>
 	<origin xyz="0 0 ${DUMBO_TOOL_LENGTH/2 + PRL80_radius/2 - PG70_length_z/2 - PG70_finger_length_z/2}" rpy="0 0 0"/>
 	<geometry>
-	  <cylinder radius="${PRL80_radius+0.02}" length="${PRL80_length}"/>
+	  <cylinder radius="${PRL80_radius}" length="${PRL80_length}"/>
 	</geometry>
       </collision>
     </link>
@@ -302,10 +302,17 @@
       <collision>
 	<origin xyz="0.0 0.0 0.03" rpy="0.0 0.0 0.0"/>
 	<geometry>
-	  <cylinder radius="${PRL80_radius+0.02}" length="0.03"/>
+	  <cylinder radius="${PRL80_radius}" length="0.03"/>
 	</geometry>
       </collision>
     </link>
+
+    <!-- ==================== Gripper link ==================== -->
+    <joint name="${name}_gripper_base_joint" type="fixed" >
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <parent link="${name}_7_link" />
+      <child link="${name}_gripper_link" />
+    </joint>
     
   </xacro:macro>
 

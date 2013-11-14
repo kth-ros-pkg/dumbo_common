@@ -9,7 +9,7 @@ s-model_articulated - articulated version of the robotiq s-model,
   
   <joint name="robotiq_base_joint" type="fixed">
     <origin xyz = "0.0 0.0 0.33" rpy="${PI/2} 0.0 0.0" />
-    <parent link="right_arm_7_link"/>
+    <parent link="right_arm_gripper_link"/>
     <child link="robotiq_palm"/>
   </joint>
 
