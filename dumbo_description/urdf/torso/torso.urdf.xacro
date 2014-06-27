@@ -4,7 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find dumbo_description)/urdf/torso/torso_common.xacro" />
+  <xacro:include filename="$(find dumbo_description)/urdf/torso/torso_common.xacro" />
 
   <xacro:macro name="dumbo_torso" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
