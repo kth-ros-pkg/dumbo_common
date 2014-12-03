@@ -2,6 +2,6 @@
 <launch>
 
     <!-- send dumbo urdf to param server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find dumbo_hardware_config)/dumbo/urdf/dumbo_vkc.urdf.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find dumbo_description)/robots/dumbo_vkc.urdf.xacro'" />
 
 </launch>
