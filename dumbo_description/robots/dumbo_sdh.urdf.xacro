@@ -20,7 +20,7 @@
   <!-- The following included files set up definitions of parts of the robot body -->
   <xacro:include filename="$(find dumbo_description)/urdf/platform/platform.urdf.xacro" />
   <xacro:include filename="$(find dumbo_description)/urdf/torso/torso.urdf.xacro" />
-  <xacro:include filename="$(find dumbo_description)/urdf/accelerometer/accelerometer.urdf.xacro" />
+  <xacro:include filename="$(find dumbo_description)/urdf/imu/imu.urdf.xacro" />
   <xacro:include filename="$(find dumbo_description)/urdf/lwa/lwa.urdf.xacro" />
   <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.urdf.xacro" />
   <xacro:include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
@@ -36,8 +36,8 @@
     <origin xyz = "0.0 0.06 ${platform_length_z + torso_length/2}" rpy="0.0 0.0 0.0" />
   </xacro:dumbo_torso>
 
-  <!-- Accelerometer -->
-  <xacro:dumbo_accelerometer name="accelerometer" parent="arm_base_link" />
+  <!-- Imu -->
+  <xacro:dumbo_imu name="imu" parent="arm_base_link" />
 
   <!-- Schunk LWA -->
   <xacro:dumbo_lwa name="right_arm" parent="arm_base_link" reflect="1" />
