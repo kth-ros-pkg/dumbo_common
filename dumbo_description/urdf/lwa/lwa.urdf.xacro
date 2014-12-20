@@ -5,6 +5,9 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
+  <xacro:include filename="$(find dumbo_description)/urdf/lwa/lwa.gazebo.xacro" />
+  <xacro:include filename="$(find dumbo_description)/urdf/lwa/lwa.transmission.xacro" />
+
   <!-- macro for creating a schunk LWA.
        reflect = 1 for right arm, -1 for the left arm -->
   <xacro:macro name="dumbo_lwa" params="name parent reflect">
@@ -306,6 +309,10 @@
 	</geometry>
       </collision>
     </link>
+
+    <!-- gazebo extensions -->
+    <xacro:dumbo_lwa_gazebo name="${name}" />
+    <xacro:dumbo_lwa_transmission name="${name}" />
     
   </xacro:macro>
 
