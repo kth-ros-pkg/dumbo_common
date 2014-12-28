@@ -24,6 +24,8 @@
   <xacro:include filename="$(find dumbo_description)/urdf/lwa/lwa.urdf.xacro" />
   <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.urdf.xacro" />
   
+  <xacro:include filename="$(find dumbo_description)/robots/dumbo.gazebo" />
+
 
   <property name="PI" value="3.1415926535897931" />
 

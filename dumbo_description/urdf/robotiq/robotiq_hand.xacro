@@ -17,6 +17,8 @@ s-model_articulated - articulated version of the robotiq s-model,
   <xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_articulated_macro.xacro" />
   <xacro:s-model_articulated prefix="robotiq_"/>
 
+  <!-- gazebo extensions -->
+  <xacro:include filename="$(find dumbo_description)/urdf/robotiq/robotiq_hand.gazebo" />
 
 <!--
 	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_finger_articulated_macro.xacro" />

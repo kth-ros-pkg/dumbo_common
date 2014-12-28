@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot>
+
+ 
+    <gazebo reference="robotiq_palm">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <!-- Finger 1 -->
+    <gazebo reference="robotiq_finger_1_link_0">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_1_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_1_link_2">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_1_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+
+    <!-- Finger 2 -->
+    <gazebo reference="robotiq_finger_2_link_0">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_2_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_2_link_2">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_2_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+
+    <!-- Middle finger -->
+    <gazebo reference="robotiq_finger_middle_link_0">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_middle_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_middle_link_2">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="robotiq_finger_middle_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+
+</robot>
+
+

@@ -4,6 +4,9 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.gazebo.xacro" />
+  <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.transmission.xacro" />
+
 
   <!-- PG70 parallel gripper finger -->
   <xacro:macro name="dumbo_pg70_finger" params="name prefix parent reflect">
@@ -79,6 +82,10 @@
     
     <xacro:dumbo_pg70_finger name="${name}" prefix="top" parent="${name}_tool_link" reflect="1" />
     <xacro:dumbo_pg70_finger name="${name}" prefix="bottom" parent="${name}_tool_link" reflect="-1" />
+    
+    <!-- gazebo extensions -->
+    <xacro:dumbo_pg70_gripper_gazebo name="${name}" />
+    <xacro:dumbo_pg70_gripper_transmission name="${name}" />
 
   </xacro:macro>
 
