@@ -16,7 +16,7 @@
       <calibration rising="0.0"/>
       <parent link="${parent}" />
       <child link="${name}_${prefix}_finger_link" />
-      <limit effort="370" velocity="0.01" lower="0.0" upper="0.03"/>
+      <limit effort="370" velocity="0.1" lower="0.0" upper="0.03"/>
       <safety_controller k_position="100" k_velocity="10" soft_lower_limit="0.001" soft_upper_limit="${0.03-0.001}" />
     </joint>
 
@@ -24,7 +24,7 @@
     <link name="${name}_${prefix}_finger_link">
       <inertial>
 	<origin xyz="0 ${reflect*PG70_finger_length_y/2} ${PG70_finger_length_z/2}" rpy="0 0 0" />
-	<mass value="1.0" />
+	<mass value="0.01" />
 	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
@@ -60,7 +60,7 @@
     <link name="${name}_tool_link">
       <inertial>
 	<origin xyz="0 0 ${-PG70_finger_length_z - PG70_length_z/2}" rpy="0 0 0" />
-	<mass value="1.0" />
+	<mass value="0.01" />
 	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
