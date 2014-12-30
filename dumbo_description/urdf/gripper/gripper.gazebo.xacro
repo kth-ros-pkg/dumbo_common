@@ -10,14 +10,17 @@
 
     <gazebo reference="${name}_tool_link">
       <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
     <gazebo reference="${name}_top_finger_link">
       <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
     <gazebo reference="${name}_bottom_finger_link">
       <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
     </gazebo>
   
   </xacro:macro>

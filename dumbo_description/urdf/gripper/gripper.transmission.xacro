@@ -11,7 +11,7 @@
     <transmission name="${name}_top_finger_joint_tran">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_top_finger_joint"/>
-      <actuator name="${name}_top_finger_joint_motor">
+      <actuator name="${name}_top_finger_motor">
 	<hardwareInterface>VelocityJointInterface</hardwareInterface>
 	<mechanicalReduction>1</mechanicalReduction>
       </actuator>
@@ -20,7 +20,7 @@
     <transmission name="${name}_bottom_finger_joint_tran">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_bottom_finger_joint"/>
-      <actuator name="${name}_bottom_finger_joint_motor">
+      <actuator name="${name}_bottom_finger_motor">
 	<hardwareInterface>VelocityJointInterface</hardwareInterface>
 	<mechanicalReduction>1</mechanicalReduction>
       </actuator>
