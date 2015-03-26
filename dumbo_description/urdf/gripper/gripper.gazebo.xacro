@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <!-- PG70 parallel gripper finger -->
+  <xacro:macro name="dumbo_pg70_gripper_gazebo" params="name">
+
+    <gazebo reference="${name}_tool_link">
+      <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${name}_top_finger_link">
+      <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${name}_bottom_finger_link">
+      <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+  
+  </xacro:macro>
+
+</robot>

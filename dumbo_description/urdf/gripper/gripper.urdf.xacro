@@ -4,6 +4,9 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.gazebo.xacro" />
+  <xacro:include filename="$(find dumbo_description)/urdf/gripper/gripper.transmission.xacro" />
+
 
   <!-- PG70 parallel gripper finger -->
   <xacro:macro name="dumbo_pg70_finger" params="name prefix parent reflect">
@@ -13,7 +16,7 @@
       <calibration rising="0.0"/>
       <parent link="${parent}" />
       <child link="${name}_${prefix}_finger_link" />
-      <limit effort="370" velocity="0.01" lower="0.0" upper="0.03"/>
+      <limit effort="370" velocity="0.1" lower="0.0" upper="0.03"/>
       <safety_controller k_position="100" k_velocity="10" soft_lower_limit="0.001" soft_upper_limit="${0.03-0.001}" />
     </joint>
 
@@ -21,7 +24,7 @@
     <link name="${name}_${prefix}_finger_link">
       <inertial>
 	<origin xyz="0 ${reflect*PG70_finger_length_y/2} ${PG70_finger_length_z/2}" rpy="0 0 0" />
-	<mass value="1.0" />
+	<mass value="0.01" />
 	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
@@ -57,7 +60,7 @@
     <link name="${name}_tool_link">
       <inertial>
 	<origin xyz="0 0 ${-PG70_finger_length_z - PG70_length_z/2}" rpy="0 0 0" />
-	<mass value="1.0" />
+	<mass value="0.01" />
 	<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
@@ -79,6 +82,10 @@
     
     <xacro:dumbo_pg70_finger name="${name}" prefix="top" parent="${name}_tool_link" reflect="1" />
     <xacro:dumbo_pg70_finger name="${name}" prefix="bottom" parent="${name}_tool_link" reflect="-1" />
+    
+    <!-- gazebo extensions -->
+    <xacro:dumbo_pg70_gripper_gazebo name="${name}" />
+    <xacro:dumbo_pg70_gripper_transmission name="${name}" />
 
   </xacro:macro>
 

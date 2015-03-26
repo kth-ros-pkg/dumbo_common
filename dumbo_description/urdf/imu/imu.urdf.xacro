@@ -5,12 +5,12 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-  <!-- macro for setting up the reference frame of the accelerometer (Phidgets 1056 IMU)
+  <!-- macro for setting up the reference frame of the IMU (Phidgets 1056 IMU)
        reflect = 1 for right arm, -1 for the left arm -->
-  <xacro:macro name="dumbo_accelerometer" params="name parent">
+  <xacro:macro name="dumbo_imu" params="name parent">
     
 
-    <!-- ==================== Accelerometer ==================== -->
+    <!-- ==================== IMU ==================== -->
 
     <joint name="${name}_joint" type="fixed" >
       <origin xyz="0.0 -0.098 0.0" rpy="-1.5240 -0.0367 0.0175"/>
